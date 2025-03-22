@@ -1,0 +1,33 @@
+C:\Windows\System32>nmap -sn 192.168.2.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-03-21 13:40 Eastern Daylight Time
+Nmap scan report for 192.168.2.1
+Host is up (0.033s latency).
+MAC Address: 34:5D:9E:F3:C8:E5 (Sagemcom Broadband SAS)
+Nmap scan report for 192.168.2.20
+Host is up (0.092s latency).
+MAC Address: 70:09:71:31:74:86 (Samsung Electronics)
+Nmap scan report for 192.168.2.66
+Host is up (0.12s latency).
+MAC Address: 98:25:A4:E3:96:CA (TP-Link PTE.)
+Nmap scan report for 192.168.2.89
+Host is up (0.096s latency).
+MAC Address: 26:55:5E:36:76:DC (Unknown)
+Nmap scan report for 192.168.2.108
+Host is up (0.051s latency).
+MAC Address: 00:0C:29:EA:96:02 (VMware)
+Nmap scan report for 192.168.2.109
+Host is up (0.049s latency).
+MAC Address: 00:0C:29:3A:DF:20 (VMware)
+Nmap scan report for 192.168.2.98
+Host is up.
+Nmap done: 256 IP addresses (7 hosts up) scanned in 3.24 seconds
+
+C:\Windows\System32>date
+The current date is: Fri 03/21/2025
+Enter the new date: (mm-dd-yy)
+
+C:\Windows\System32>time
+The current time is: 13:41:51.88
+Enter the new time:
+
+C:\Windows\System32>harlin 165649229
