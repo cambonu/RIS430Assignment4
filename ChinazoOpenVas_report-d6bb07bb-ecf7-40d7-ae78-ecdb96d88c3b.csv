@@ -1,0 +1,424 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      10.0.0.112,,21,tcp,4.8,Medium,70,"Mitigation","FTP Unencrypted Cleartext Login","The remote host is running a FTP service that allows cleartext logins over
+  unencrypted connections.","The remote FTP service accepts logins without a previous sent 'AUTH TLS' command. Response(s):
+
+Non-anonymous sessions: 331 Please specify the password.
+Anonymous sessions:     331 Please specify the password.
+",1.3.6.1.4.1.25623.1.0.108528,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,0b4ba0d1-9f31-4f18-868d-d036d1fbee2e,"An attacker can uncover login names and passwords by sniffing traffic to the
+  FTP service.","Enable FTPS or enforce the connection via the 'AUTH TLS' command. Please see
+  the manual of the FTP service for more information.","","","Tries to login to a non FTPS enabled FTP service without sending a
+  'AUTH TLS' command first and checks if the service is accepting the login without enforcing the use of
+  the 'AUTH TLS' command.
+Details:
+FTP Unencrypted Cleartext Login
+(OID: 1.3.6.1.4.1.25623.1.0.108528)
+Version used: 2023-12-20T05:05:58Z
+","","","",""
+10.0.0.112,,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 2560935009
+Packet 2: 2560936100
+",1.3.6.1.4.1.25623.1.0.80091,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,837ef4f4-15d1-46c6-860e-def757cb2843,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+10.0.0.112,,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,de9960fb-c7fc-4c40-8773-42ab175a024f,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
+10.0.0.112,,139,tcp,0.0,Log,80,"","SMB/CIFS Server Detection","This script detects whether port 445 and 139 are open and
+  if they are running a CIFS/SMB server.","A SMB server is running on this port
+",1.3.6.1.4.1.25623.1.0.11011,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,f60f5f53-6733-462e-afa4-1435b291a95c,"","","","","
+Details:
+SMB/CIFS Server Detection
+(OID: 1.3.6.1.4.1.25623.1.0.11011)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+10.0.0.112,,445,tcp,0.0,Log,97,"","SMB log in","This script attempts to logon into the remote host using
+  login/password credentials.","It was possible to log into the remote host using the SMB protocol.
+",1.3.6.1.4.1.25623.1.0.10394,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,532e9dee-c6d7-4c69-bfac-9152b030cadf,"","","","","
+Details:
+SMB log in
+(OID: 1.3.6.1.4.1.25623.1.0.10394)
+Version used: 2023-11-28T05:05:32Z
+","","","",""
+10.0.0.112,,21,tcp,0.0,Log,80,"","FTP Banner Detection","This script detects and reports a FTP Server Banner.","Remote FTP server banner:
+
+220 (vsFTPd 3.0.5)
+
+This is probably (a):
+
+- vsFTPd
+",1.3.6.1.4.1.25623.1.0.10092,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,3e76f3e1-441b-497c-b9f0-6437567ac5c0,"","","","","
+Details:
+FTP Banner Detection
+(OID: 1.3.6.1.4.1.25623.1.0.10092)
+Version used: 2024-06-07T15:38:39Z
+","","","",""
+10.0.0.112,,53,tcp,0.0,Log,80,"","DNS Server Detection (TCP)","TCP based detection of a DNS server.","The remote DNS server banner is:
+
+9.18.30-0ubuntu0.22.04.2-Ubuntu
+",1.3.6.1.4.1.25623.1.0.108018,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,128ddd64-e4b6-40c3-9b1c-c21ec7e2a349,"","","","","
+Details:
+DNS Server Detection (TCP)
+(OID: 1.3.6.1.4.1.25623.1.0.108018)
+Version used: 2021-11-30T08:05:58Z
+","","","",""
+10.0.0.112,,,,0.0,Log,80,"","ISC BIND Detection Consolidation","Consolidation of ISC BIND detections.","Detected ISC BIND
+
+Version:       9.18.30
+Location:      53/tcp
+CPE:           cpe:/a:isc:bind:9.18.30
+
+Concluded from version/product identification result:
+9.18.30-0ubuntu0.22.04.2-Ubuntu
+",1.3.6.1.4.1.25623.1.0.145294,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,b7b15f53-a08f-44d9-abf5-7b9fa4bc91f6,"","","","","
+Details:
+ISC BIND Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.145294)
+Version used: 2022-03-28T10:48:38Z
+","","","",""
+10.0.0.112,,,,0.0,Log,80,"","Apache HTTP Server Detection Consolidation","Consolidation of Apache HTTP Server detections.","Detected Apache HTTP Server
+
+Version:       2.4.52
+Location:      80/tcp
+CPE:           cpe:/a:apache:http_server:2.4.52
+
+Concluded from version/product identification result:
+Server: Apache/2.4.52 (Ubuntu)
+",1.3.6.1.4.1.25623.1.0.117232,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,5f5696b2-6dd4-47dc-8526-0ba384c5a059,"","","","","
+Details:
+Apache HTTP Server Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.117232)
+Version used: 2024-03-08T15:37:10Z
+","","","",""
+10.0.0.112,,21,tcp,0.0,Log,80,"","vsFTPd FTP Server Detection","The script is grabbing the
+  banner of a FTP server and attempts to identify a vsFTPd FTP Server
+  and its version from the reply.","Detected vsFTPd
+
+Version:       3.0.5
+Location:      21/tcp
+CPE:           cpe:/a:beasts:vsftpd:3.0.5
+
+Concluded from version/product identification result:
+220 (vsFTPd 3.0.5)
+",1.3.6.1.4.1.25623.1.0.111050,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,73be4139-ab16-4271-8fe3-fe591a313280,"","","","","
+Details:
+vsFTPd FTP Server Detection
+(OID: 1.3.6.1.4.1.25623.1.0.111050)
+Version used: 2023-07-26T05:05:09Z
+","","","",""
+10.0.0.112,,,,0.0,Log,80,"","OS Detection Consolidation and Reporting","This script consolidates the OS information detected by several
+  VTs and tries to find the best matching OS.
+
+  Furthermore it reports all previously collected information leading to this best matching OS. It
+  also reports possible additional information which might help to improve the OS detection.
+
+  If any of this information is wrong or could be improved please consider to report these to the
+  referenced community forum.","Best matching OS:
+
+OS:           Ubuntu
+CPE:          cpe:/o:canonical:ubuntu_linux
+Found by VT:  1.3.6.1.4.1.25623.1.0.108014 (Operating System (OS) Detection (DNS))
+Concluded from DNS server banner on port 53/tcp: 9.18.30-0ubuntu0.22.04.2-Ubuntu
+Setting key ""Host/runs_unixoide"" based on this information
+
+Other OS detections (in order of reliability):
+
+OS:           Linux/Unix
+CPE:          cpe:/o:linux:kernel
+Found by VT:  1.3.6.1.4.1.25623.1.0.105355 (Operating System (OS) Detection (FTP))
+Concluded from FTP banner on port 21/tcp: 220 (vsFTPd 3.0.5)
+
+OS:           Ubuntu 22.04
+Version:      22.04
+CPE:          cpe:/o:canonical:ubuntu_linux:22.04
+Found by VT:  1.3.6.1.4.1.25623.1.0.111067 (Operating System (OS) Detection (HTTP))
+Concluded from HTTP Server banner on port 80/tcp: Server: Apache/2.4.52 (Ubuntu)
+
+OS:           Ubuntu
+CPE:          cpe:/o:canonical:ubuntu_linux
+Found by VT:  1.3.6.1.4.1.25623.1.0.111067 (Operating System (OS) Detection (HTTP))
+Concluded from HTTP Server default page on port 80/tcp: <title>Apache2 Ubuntu Default Page
+
+
+",1.3.6.1.4.1.25623.1.0.105937,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,473c9717-af84-4549-b236-a7ae84431d37,"","","","","
+Details:
+OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+10.0.0.112,,445,tcp,0.0,Log,80,"","SMB Remote Version Detection","Detection of Server Message Block(SMB).
+
+  This script sends SMB Negotiation request and try to get the version from the
+  response.","SMBv2 and SMBv3 are enabled on remote target
+",1.3.6.1.4.1.25623.1.0.807830,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,1205910c-7b1c-4e18-a40e-b930aa0e57f3,"","","","","
+Details:
+SMB Remote Version Detection
+(OID: 1.3.6.1.4.1.25623.1.0.807830)
+Version used: 2023-07-26T05:05:09Z
+","","","",""
+10.0.0.112,,,,0.0,Log,80,"","Traceroute","Collect information about the network route and
+  network distance between the scanner host and the target host.","Network route from scanner (10.0.0.116) to target (10.0.0.112):
+
+10.0.0.116
+10.0.0.112
+
+Network distance between scanner and target: 2
+",1.3.6.1.4.1.25623.1.0.51662,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,e7d81196-441d-4fbd-87c3-67c668cbc225,"","","","For internal networks, the distances are usually
+  small, often less than 4 hosts between scanner and target. For public targets the
+  distance is greater and might be 10 hosts or more.","A combination of the protocols ICMP and TCP is used
+  to determine the route. This method is applicable for IPv4 only and it is also known as
+  'traceroute'.
+Details:
+Traceroute
+(OID: 1.3.6.1.4.1.25623.1.0.51662)
+Version used: 2022-10-17T11:13:19Z
+","","","",""
+10.0.0.112,,21,tcp,0.0,Log,80,"","SSL/TLS: FTP Missing Support For AUTH TLS","The remote FTP server does not support the 'AUTH TLS' command.","The remote FTP server does not support the 'AUTH TLS' command.
+",1.3.6.1.4.1.25623.1.0.108553,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,e6efae8f-37c4-4c64-81eb-103a1d82226d,"","","","","
+Details:
+SSL/TLS: FTP Missing Support For AUTH TLS
+(OID: 1.3.6.1.4.1.25623.1.0.108553)
+Version used: 2021-03-19T08:13:38Z
+","","","",""
+10.0.0.112,,80,tcp,0.0,Log,80,"","HTTP Server type and version","This script detects and reports the HTTP Server's banner
+  which might provide the type and version of it.","The remote HTTP Server banner is:
+
+Server: Apache/2.4.52 (Ubuntu)
+",1.3.6.1.4.1.25623.1.0.10107,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,22d3b0a2-105f-4802-9bd7-882f058b9320,"","","","","
+Details:
+HTTP Server type and version
+(OID: 1.3.6.1.4.1.25623.1.0.10107)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+10.0.0.112,,80,tcp,0.0,Log,80,"","HTTP Server Banner Enumeration","This script tries to detect / enumerate different HTTP server
+  banner (e.g. from a frontend, backend or proxy server) by sending various different HTTP requests
+  (valid and invalid ones).","It was possible to enumerate the following HTTP server banner(s):
+
+Server banner                  | Enumeration technique
+-------------------------------------------------------------------------------------------------
+Server: Apache/2.4.52 (Ubuntu) | Invalid HTTP 00.5 GET request (non-existent HTTP version) to '/'
+",1.3.6.1.4.1.25623.1.0.108708,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,fa5ce27d-685f-4f1e-89fb-a4bcc11993e6,"","","","","
+Details:
+HTTP Server Banner Enumeration
+(OID: 1.3.6.1.4.1.25623.1.0.108708)
+Version used: 2025-01-31T15:39:24Z
+","","","",""
+10.0.0.112,,80,tcp,0.0,Log,80,"","HTTP Security Headers Detection","All known security headers are being checked on the remote web
+  server.
+
+  On completion a report will hand back whether a specific security header has been implemented
+  (including its value and if it is deprecated) or is missing on the target.","Missing Headers                   | More Information
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy           | https://owasp.org/www-project-secure-headers/#content-security-policy
+Cross-Origin-Embedder-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Opener-Policy        | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Cross-Origin-Resource-Policy      | https://scotthelme.co.uk/coop-and-coep/, Note: This is an upcoming header
+Document-Policy                   | https://w3c.github.io/webappsec-feature-policy/document-policy#document-policy-http-header
+Feature-Policy                    | https://owasp.org/www-project-secure-headers/#feature-policy, Note: The Feature Policy header has been renamed to Permissions Policy
+Permissions-Policy                | https://w3c.github.io/webappsec-feature-policy/#permissions-policy-http-header-field
+Referrer-Policy                   | https://owasp.org/www-project-secure-headers/#referrer-policy
+Sec-Fetch-Dest                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Mode                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-Site                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+Sec-Fetch-User                    | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers#fetch_metadata_request_headers, Note: This is a new header supported only in newer browsers like e.g. Firefox 90
+X-Content-Type-Options            | https://owasp.org/www-project-secure-headers/#x-content-type-options
+X-Frame-Options                   | https://owasp.org/www-project-secure-headers/#x-frame-options
+X-Permitted-Cross-Domain-Policies | https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies
+X-XSS-Protection                  | https://owasp.org/www-project-secure-headers/#x-xss-protection, Note: Most major browsers have dropped / deprecated support for this header in 2020.
+",1.3.6.1.4.1.25623.1.0.112081,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,db2dbc42-8cf5-4b43-9420-a271b41301ee,"","","","","
+Details:
+HTTP Security Headers Detection
+(OID: 1.3.6.1.4.1.25623.1.0.112081)
+Version used: 2021-07-14T06:19:43Z
+","","","",""
+10.0.0.112,,80,tcp,0.0,Log,80,"","Web Application Scanning Consolidation / Info Reporting","The script consolidates and reports various information for web
+  application (formerly called 'CGI') scanning.
+
+  This information is based on the following scripts / settings:
+
+  - HTTP-Version Detection (OID: 1.3.6.1.4.1.25623.1.0.100034)
+
+  - No 404 check (OID: 1.3.6.1.4.1.25623.1.0.10386)
+
+  - Web mirroring / webmirror.nasl (OID: 1.3.6.1.4.1.25623.1.0.10662)
+
+  - Directory Scanner / DDI_Directory_Scanner.nasl (OID: 1.3.6.1.4.1.25623.1.0.11032)
+
+  - The configured 'cgi_path' within the 'Scanner Preferences' of the scan config in use
+
+  - The configured 'Enable CGI scanning', 'Enable generic web application scanning' and
+  'Add historic /scripts and /cgi-bin to directories for CGI scanning' within the
+  'Global variable settings' of the scan config in use
+
+  If you think any of this information is wrong please report it to the referenced community
+  forum.","The Hostname/IP ""10.0.0.112"" was used to access the remote host.
+
+Generic web application scanning is disabled for this host via the ""Enable generic web application scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+Requests to this service are done via HTTP/1.1.
+
+This service seems to be able to host PHP scripts.
+
+This service seems to be able to host ASP scripts.
+
+The User-Agent ""Mozilla/5.0 [en] (X11, U; Greenbone OS 22.04.27)"" was used to access the remote host.
+
+Historic /scripts and /cgi-bin are not added to the directories used for web application scanning. You can enable this again with the ""Add historic /scripts and /cgi-bin to directories for CGI scanning"" option within the ""Global variable settings"" of the scan config in use.
+
+The following directories were used for web application scanning:
+
+http://10.0.0.112/
+http://10.0.0.112/dvwa
+http://10.0.0.112/mutillidae
+http://10.0.0.112/mutillidae/src
+
+While this is not, in and of itself, a bug, you should manually inspect these directories to ensure that they are in compliance with company security standards
+
+The following directories were excluded from web application scanning because the ""Regex pattern to exclude directories from CGI scanning"" setting of the VT ""Global variable settings"" (OID: 1.3.6.1.4.1.25623.1.0.12288) for this scan was: ""/(index\.php|image|img|css|js$|js/|javascript|style|theme|icon|jquery|graphic|grafik|picture|bilder|thumbnail|media/|skins?/)""
+
+http://10.0.0.112/icons
+http://10.0.0.112/javascript
+
+Directory index found at:
+
+http://10.0.0.112/mutillidae/
+
+The following CGIs were discovered:
+
+Syntax : cginame (arguments [default value])
+
+http://10.0.0.112/mutillidae/ (C=S;O [A] C=N;O [D] C=M;O [A] C=D;O [A] )
+",1.3.6.1.4.1.25623.1.0.111038,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,f3b7df91-2e14-4518-86a2-16d8dc6be83c,"","","","","
+Details:
+Web Application Scanning Consolidation / Info Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.111038)
+Version used: 2024-09-19T05:05:57Z
+","","","",""
+10.0.0.112,,445,tcp,0.0,Log,80,"","SMB Login Successful For Authenticated Checks","It was possible to login using the provided SMB
+  credentials. Hence authenticated checks are enabled.","Vulnerability was detected according to the Vulnerability Detection Method.",1.3.6.1.4.1.25623.1.0.108539,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,92f010d4-c111-4d7e-b990-ea084d58cc12,"","","","","
+Details:
+SMB Login Successful For Authenticated Checks
+(OID: 1.3.6.1.4.1.25623.1.0.108539)
+Version used: 2023-07-28T16:09:07Z
+","","","",""
+10.0.0.112,,445,tcp,0.0,Log,80,"","Microsoft Windows SMB Accessible Shares","The script detects the Windows SMB Accessible Shares and sets the
+  result into KB.","The following shares were found
+IPC$
+
+",1.3.6.1.4.1.25623.1.0.902425,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,228312c3-98e0-42c3-ad83-a06e3b6ae848,"","","","","
+Details:
+Microsoft Windows SMB Accessible Shares
+(OID: 1.3.6.1.4.1.25623.1.0.902425)
+Version used: 2023-01-31T10:08:41Z
+","","","",""
+10.0.0.112,,,,0.0,Log,80,"","CPE Inventory","This routine uses information collected by other routines about
+  CPE identities of operating systems, services and applications detected during the scan.
+
+  Note: Some CPEs for specific products might show up twice or more in the output. Background:
+
+  After a product got renamed or a specific vendor was acquired by another one it might happen that
+  a product gets a new CPE within the NVD CPE Dictionary but older entries are kept with the older
+  CPE.","10.0.0.112|cpe:/a:apache:http_server:2.4.52
+10.0.0.112|cpe:/a:beasts:vsftpd:3.0.5
+10.0.0.112|cpe:/a:isc:bind:9.18.30
+10.0.0.112|cpe:/o:canonical:ubuntu_linux
+
+",1.3.6.1.4.1.25623.1.0.810002,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,dc311f12-1bc1-402b-9420-d6d6d1b6dd1b,"","","","","
+Details:
+CPE Inventory
+(OID: 1.3.6.1.4.1.25623.1.0.810002)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+10.0.0.112,,80,tcp,0.0,Log,80,"","Check open ports","This plugin checks if the port scanners did not kill a service.","This port was detected as being open by a port scanner but is now closed.
+This service might have been crashed by a port scanner or by a plugin
+
+",1.3.6.1.4.1.25623.1.0.10919,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,9f754f84-b88a-4547-b747-58d17caa973e,"","","","","
+Details:
+Check open ports
+(OID: 1.3.6.1.4.1.25623.1.0.10919)
+Version used: 2023-08-03T05:05:16Z
+","","","",""
+10.0.0.112,,53,tcp,0.0,Log,80,"","Check open ports","This plugin checks if the port scanners did not kill a service.","This port was detected as being open by a port scanner but is now closed.
+This service might have been crashed by a port scanner or by a plugin
+
+",1.3.6.1.4.1.25623.1.0.10919,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,97a0b1df-1ffc-482e-8936-174c7159e928,"","","","","
+Details:
+Check open ports
+(OID: 1.3.6.1.4.1.25623.1.0.10919)
+Version used: 2023-08-03T05:05:16Z
+","","","",""
+10.0.0.112,,21,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","An FTP server is running on this port.
+Here is its banner : 
+220 (vsFTPd 3.0.5)
+",1.3.6.1.4.1.25623.1.0.10330,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,4fcbd5f1-baef-4a22-ac52-dc6601216f81,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2023-06-14T05:05:19Z
+","","","",""
+10.0.0.112,,,,0.0,Log,80,"","Hostname Determination Reporting","The script reports information on how the hostname of the target
+  was determined.","Hostname determination for IP 10.0.0.112:
+
+Hostname|Source
+10.0.0.112|IP-address
+",1.3.6.1.4.1.25623.1.0.108449,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,d6e49dff-5e39-470d-8e04-8037a47dd1ab,"","","","","
+Details:
+Hostname Determination Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108449)
+Version used: 2022-07-27T10:11:28Z
+","","","",""
+10.0.0.112,,80,tcp,0.0,Log,80,"","Services","This plugin performs service detection.","A web server is running on this port
+",1.3.6.1.4.1.25623.1.0.10330,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,d582a0c0-be99-4e05-82e7-b69c22406ad7,"","","","This plugin attempts to guess which service is running on the
+  remote port(s). For instance, it searches for a web server which could listen on another port than
+  80 or 443 and makes this information available for other check routines.","
+Details:
+Services
+(OID: 1.3.6.1.4.1.25623.1.0.10330)
+Version used: 2023-06-14T05:05:19Z
+","","","",""
+10.0.0.112,,445,tcp,0.0,Log,80,"","SMB/CIFS Server Detection","This script detects whether port 445 and 139 are open and
+  if they are running a CIFS/SMB server.","A CIFS server is running on this port
+",1.3.6.1.4.1.25623.1.0.11011,"",479edca0-2f0c-46a9-a1c7-8d9b01c15c9c,"Immediate scan of IP 10.0.0.112",2025-03-21T20:46:47Z,798ddd67-b11f-4886-a094-04cef0fc7edb,"","","","","
+Details:
+SMB/CIFS Server Detection
+(OID: 1.3.6.1.4.1.25623.1.0.11011)
+Version used: 2023-08-01T13:29:10Z
+","","","",""

@@ -1,0 +1,201 @@
+udo nmap -sV -O 10.0.0.0/24
+
+[sudo] password for kali: 
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-03-20 10:10 EDT
+Nmap scan report for 10.0.0.1
+Host is up (0.0046s latency).
+Not shown: 990 closed tcp ports (reset)
+PORT      STATE    SERVICE     VERSION
+22/tcp    filtered ssh
+23/tcp    filtered telnet
+53/tcp    open     domain      dnsmasq 2.83
+80/tcp    open     http        Xfinity Broadband Router Server
+111/tcp   filtered rpcbind
+443/tcp   open     ssl/https   Xfinity Broadband Router Server
+8080/tcp  filtered http-proxy
+8181/tcp  filtered intermapper
+9000/tcp  filtered cslistener
+49152/tcp open     upnp        Portable SDK for UPnP devices 1.6.22 (Linux 5.4.201-prod-23.2-231009; UPnP 1.0)
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.94SVN%I=7%D=3/20%Time=67DC21FF%P=x86_64-pc-linux-gnu%r(G
+SF:etRequest,24B7,"HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/html\r\
+SF:nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS
+SF:-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\
+SF:r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSubdomains
+SF:\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,\x20
+SF:must-revalidate\r\nContent-Security-Policy:\x20default-src\x20'self'\x2
+SF:0;\x20style-src\x20'self'\x20;\x20frame-src\x20'self'\x20;\x20font-src\
+SF:x20'self'\x20;\x20form-action\x20'self'\x20;\x20script-src\x20'self'\x2
+SF:0'unsafe-inline'\x20'unsafe-eval';\x20img-src\x20'self';\x20connect-src
+SF:\x20'self';\x20object-src\x20'none';\x20media-src\x20'none';\x20script-
+SF:nonce\x20'none';\x20plugin-types\x20'none';\x20reflected-xss\x20'none';
+SF:\x20report-uri\x20'none';\r\nContent-Length:\x208652\r\nConnection:\x20
+SF:close\r\nDate:\x20Sat,\x2003\x20Jan\x201970\x2016:30:04\x20GMT\r\nServe
+SF:r:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n<!DOCTYPE\x20ht
+SF:ml\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\.0\x20Strict//EN\"\x20\"htt
+SF:p://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd\">\n<html\x20xmlns=\"
+SF:http://www\.w3\.org/1999/xhtml\"")%r(HTTPOptions,24B7,"HTTP/1\.0\x20200
+SF:\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex,nofoll
+SF:ow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mode=block
+SF:\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Security:\x2
+SF:0max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r\nCache
+SF:-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nContent-Secur
+SF:ity-Policy:\x20default-src\x20'self'\x20;\x20style-src\x20'self'\x20;\x
+SF:20frame-src\x20'self'\x20;\x20font-src\x20'self'\x20;\x20form-action\x2
+SF:0'self'\x20;\x20script-src\x20'self'\x20'unsafe-inline'\x20'unsafe-eval
+SF:';\x20img-src\x20'self';\x20connect-src\x20'self';\x20object-src\x20'no
+SF:ne';\x20media-src\x20'none';\x20script-nonce\x20'none';\x20plugin-types
+SF:\x20'none';\x20reflected-xss\x20'none';\x20report-uri\x20'none';\r\nCon
+SF:tent-Length:\x208652\r\nConnection:\x20close\r\nDate:\x20Sat,\x2003\x20
+SF:Jan\x201970\x2016:30:06\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Ro
+SF:uter\x20Server\r\n\r\n\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x2
+SF:0XHTML\x201\.0\x20Strict//EN\"\x20\"http://www\.w3\.org/TR/xhtml1/DTD/x
+SF:html1-strict\.dtd\">\n<html\x20xmlns=\"http://www\.w3\.org/1999/xhtml\"
+SF:");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.94SVN%T=SSL%I=7%D=3/20%Time=67DC2205%P=x86_64-pc-linux-
+SF:gnu%r(GetRequest,24B7,"HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/
+SF:html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r
+SF:\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20n
+SF:osniff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSub
+SF:domains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cac
+SF:he,\x20must-revalidate\r\nContent-Security-Policy:\x20default-src\x20's
+SF:elf'\x20;\x20style-src\x20'self'\x20;\x20frame-src\x20'self'\x20;\x20fo
+SF:nt-src\x20'self'\x20;\x20form-action\x20'self'\x20;\x20script-src\x20's
+SF:elf'\x20'unsafe-inline'\x20'unsafe-eval';\x20img-src\x20'self';\x20conn
+SF:ect-src\x20'self';\x20object-src\x20'none';\x20media-src\x20'none';\x20
+SF:script-nonce\x20'none';\x20plugin-types\x20'none';\x20reflected-xss\x20
+SF:'none';\x20report-uri\x20'none';\r\nContent-Length:\x208652\r\nConnecti
+SF:on:\x20close\r\nDate:\x20Sat,\x2003\x20Jan\x201970\x2016:30:10\x20GMT\r
+SF:\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n<!DOCTYP
+SF:E\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\.0\x20Strict//EN\"\x
+SF:20\"http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd\">\n<html\x20x
+SF:mlns=\"http://www\.w3\.org/1999/xhtml\"")%r(HTTPOptions,24B7,"HTTP/1\.0
+SF:\x20200\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex
+SF:,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mod
+SF:e=block\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Secur
+SF:ity:\x20max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r
+SF:\nCache-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nConten
+SF:t-Security-Policy:\x20default-src\x20'self'\x20;\x20style-src\x20'self'
+SF:\x20;\x20frame-src\x20'self'\x20;\x20font-src\x20'self'\x20;\x20form-ac
+SF:tion\x20'self'\x20;\x20script-src\x20'self'\x20'unsafe-inline'\x20'unsa
+SF:fe-eval';\x20img-src\x20'self';\x20connect-src\x20'self';\x20object-src
+SF:\x20'none';\x20media-src\x20'none';\x20script-nonce\x20'none';\x20plugi
+SF:n-types\x20'none';\x20reflected-xss\x20'none';\x20report-uri\x20'none';
+SF:\r\nContent-Length:\x208652\r\nConnection:\x20close\r\nDate:\x20Sat,\x2
+SF:003\x20Jan\x201970\x2016:30:12\x20GMT\r\nServer:\x20Xfinity\x20Broadban
+SF:d\x20Router\x20Server\r\n\r\n\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C/
+SF:/DTD\x20XHTML\x201\.0\x20Strict//EN\"\x20\"http://www\.w3\.org/TR/xhtml
+SF:1/DTD/xhtml1-strict\.dtd\">\n<html\x20xmlns=\"http://www\.w3\.org/1999/
+SF:xhtml\"");
+MAC Address: AC:4C:A5:FB:C8:4A (Technicolor CH USA)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.8
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel:5.4.201-prod-23.2-231009
+
+Nmap scan report for 10.0.0.23
+Host is up (0.17s latency).
+All 1000 scanned ports on 10.0.0.23 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: A8:8F:D9:4E:6F:20 (Apple)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: switch|VoIP phone
+Running: Dell embedded, Grandstream embedded
+OS CPE: cpe:/h:dell:powerconnect_2708 cpe:/h:grandstream:gxp2000
+OS details: Dell PowerConnect 2708 switch, Grandstream GXP2000 VoIP phone, Grandstream GXP2020 VoIP phone
+Network Distance: 1 hop
+
+Nmap scan report for 10.0.0.112
+Host is up (0.00064s latency).
+Not shown: 992 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 3.0.5
+22/tcp   open  ssh         OpenSSH 8.9p1 Ubuntu 3ubuntu0.11 (Ubuntu Linux; protocol 2.0)
+25/tcp   open  smtp        Postfix smtpd
+53/tcp   open  domain      ISC BIND 9.18.30-0ubuntu0.22.04.2 (Ubuntu Linux)
+80/tcp   open  http        Apache httpd 2.4.52 ((Ubuntu))
+139/tcp  open  netbios-ssn Samba smbd 4.6.2
+445/tcp  open  netbios-ssn Samba smbd 4.6.2
+3128/tcp open  http-proxy  Squid http proxy 5.9
+MAC Address: 00:0C:29:AF:11:9D (VMware)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.8
+Network Distance: 1 hop
+Service Info: Host:  RIS430-Target.phub.net.cable.rogers.com; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.0.0.116
+Host is up (0.00058s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT    STATE SERVICE  VERSION
+80/tcp  open  http     nginx
+443/tcp open  ssl/http nginx
+MAC Address: 00:0C:29:CB:4D:D5 (VMware)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.8
+Network Distance: 1 hop
+
+Nmap scan report for 10.0.0.129
+Host is up (0.22s latency).
+All 1000 scanned ports on 10.0.0.129 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: F0:86:20:09:66:36 (Arcadyan)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for 10.0.0.175
+Host is up (0.0082s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+7000/tcp open  rtsp    AirTunes rtspd 377.40.00
+MAC Address: F8:A2:D6:1C:E3:68 (Liteon Technology)
+Device type: phone
+Running: Google Android 5.X
+OS CPE: cpe:/o:google:android:5.1.1
+OS details: Android 5.1.1
+Network Distance: 1 hop
+
+Nmap scan report for 10.0.0.189
+Host is up (0.025s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  tcpwrapped
+MAC Address: EE:79:54:11:0C:BF (Unknown)
+OS fingerprint not ideal because: Didn't receive UDP response. Please try again with -sSU
+No OS matches for host
+Network Distance: 1 hop
+
+Nmap scan report for 10.0.0.220
+Host is up (0.13s latency).
+All 1000 scanned ports on 10.0.0.220 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: C0:BF:BE:4B:5D:07 (Unknown)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for 10.0.0.237
+Host is up (0.00054s latency).
+All 1000 scanned ports on 10.0.0.237 are in ignored states.
+Not shown: 1000 filtered tcp ports (no-response)
+MAC Address: A0:B3:39:5F:14:5A (Unknown)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for 10.0.0.141
+Host is up (0.000049s latency).
+All 1000 scanned ports on 10.0.0.141 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (10 hosts up) scanned in 220.42 seconds
+                                                                                    

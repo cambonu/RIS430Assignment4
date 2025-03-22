@@ -1,0 +1,30 @@
+sudo nmap -sn 10.0.0.0/24
+
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-03-20 10:08 EDT
+Nmap scan report for 10.0.0.1
+Host is up (0.0094s latency).
+MAC Address: AC:4C:A5:FB:C8:4A (Technicolor CH USA)
+Nmap scan report for 10.0.0.112
+Host is up (0.0010s latency).
+MAC Address: 00:0C:29:AF:11:9D (VMware)
+Nmap scan report for 10.0.0.116
+Host is up (0.00082s latency).
+MAC Address: 00:0C:29:CB:4D:D5 (VMware)
+Nmap scan report for 10.0.0.129
+Host is up (0.15s latency).
+MAC Address: F0:86:20:09:66:36 (Arcadyan)
+Nmap scan report for 10.0.0.175
+Host is up (0.052s latency).
+MAC Address: F8:A2:D6:1C:E3:68 (Liteon Technology)
+Nmap scan report for 10.0.0.189
+Host is up (0.051s latency).
+MAC Address: EE:79:54:11:0C:BF (Unknown)
+Nmap scan report for 10.0.0.220
+Host is up (0.14s latency).
+MAC Address: C0:BF:BE:4B:5D:07 (Unknown)
+Nmap scan report for 10.0.0.237
+Host is up (0.00060s latency).
+MAC Address: A0:B3:39:5F:14:5A (Unknown)
+Nmap scan report for 10.0.0.141
+Host is up.
+Nmap done: 256 IP addresses (9 hosts up) scanned in 2.25 seconds
