@@ -1,0 +1,396 @@
+nmap -A -oN detailed_scan.txt 10.0.0.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-03-01 19:17 Eastern Standard Time
+Nmap scan report for 10.0.0.1
+Host is up (0.027s latency).
+Not shown: 990 closed tcp ports (reset)
+PORT      STATE    SERVICE     VERSION
+22/tcp    filtered ssh
+23/tcp    filtered telnet
+53/tcp    open     domain      dnsmasq 2.83
+| dns-nsid:
+|_  bind.version: dnsmasq-2.83
+80/tcp    open     http        Xfinity Broadband Router Server
+| fingerprint-strings:
+|   GetRequest:
+|     HTTP/1.0 200 OK
+|     Content-type: text/html
+|     X-robots-tag: noindex,nofollow
+|     X-Frame-Options: deny
+|     X-XSS-Protection: 1; mode=block
+|     X-Content-Type-Options: nosniff
+|     Strict-Transport-Security: max-age=15768000; includeSubdomains
+|     Pragma: no-cache
+|     Cache-Control: no-store, no-cache, must-revalidate
+|     Content-Security-Policy: default-src 'self' ; style-src 'self' ; frame-src 'self' ; font-src 'self' ; form-action 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self'; connect-src 'self'; object-src 'none'; media-src 'none'; script-nonce 'none'; plugin-types 'none'; reflected-xss 'none'; report-uri 'none';
+|     Content-Length: 8642
+|     Connection: close
+|     Date: Fri, 09 Jan 1970 21:26:03 GMT
+|     Server: Xfinity Broadband Router Server
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml"
+|   HTTPOptions:
+|     HTTP/1.0 200 OK
+|     Content-type: text/html
+|     X-robots-tag: noindex,nofollow
+|     X-Frame-Options: deny
+|     X-XSS-Protection: 1; mode=block
+|     X-Content-Type-Options: nosniff
+|     Strict-Transport-Security: max-age=15768000; includeSubdomains
+|     Pragma: no-cache
+|     Cache-Control: no-store, no-cache, must-revalidate
+|     Content-Security-Policy: default-src 'self' ; style-src 'self' ; frame-src 'self' ; font-src 'self' ; form-action 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self'; connect-src 'self'; object-src 'none'; media-src 'none'; script-nonce 'none'; plugin-types 'none'; reflected-xss 'none'; report-uri 'none';
+|     Content-Length: 8642
+|     Connection: close
+|     Date: Fri, 09 Jan 1970 21:26:04 GMT
+|     Server: Xfinity Broadband Router Server
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+|_    <html xmlns="http://www.w3.org/1999/xhtml"
+|_http-server-header: Xfinity Broadband Router Server
+|_http-title: Rogers
+111/tcp   filtered rpcbind
+443/tcp   open     ssl/https   Xfinity Broadband Router Server
+| fingerprint-strings:
+|   GetRequest:
+|     HTTP/1.0 200 OK
+|     Content-type: text/html
+|     X-robots-tag: noindex,nofollow
+|     X-Frame-Options: deny
+|     X-XSS-Protection: 1; mode=block
+|     X-Content-Type-Options: nosniff
+|     Strict-Transport-Security: max-age=15768000; includeSubdomains
+|     Pragma: no-cache
+|     Cache-Control: no-store, no-cache, must-revalidate
+|     Content-Security-Policy: default-src 'self' ; style-src 'self' ; frame-src 'self' ; font-src 'self' ; form-action 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self'; connect-src 'self'; object-src 'none'; media-src 'none'; script-nonce 'none'; plugin-types 'none'; reflected-xss 'none'; report-uri 'none';
+|     Content-Length: 8642
+|     Connection: close
+|     Date: Fri, 09 Jan 1970 21:26:09 GMT
+|     Server: Xfinity Broadband Router Server
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+|     <html xmlns="http://www.w3.org/1999/xhtml"
+|   HTTPOptions:
+|     HTTP/1.0 200 OK
+|     Content-type: text/html
+|     X-robots-tag: noindex,nofollow
+|     X-Frame-Options: deny
+|     X-XSS-Protection: 1; mode=block
+|     X-Content-Type-Options: nosniff
+|     Strict-Transport-Security: max-age=15768000; includeSubdomains
+|     Pragma: no-cache
+|     Cache-Control: no-store, no-cache, must-revalidate
+|     Content-Security-Policy: default-src 'self' ; style-src 'self' ; frame-src 'self' ; font-src 'self' ; form-action 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self'; connect-src 'self'; object-src 'none'; media-src 'none'; script-nonce 'none'; plugin-types 'none'; reflected-xss 'none'; report-uri 'none';
+|     Content-Length: 8642
+|     Connection: close
+|     Date: Fri, 09 Jan 1970 21:26:10 GMT
+|     Server: Xfinity Broadband Router Server
+|     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+|_    <html xmlns="http://www.w3.org/1999/xhtml"
+| tls-alpn:
+|   http/1.0
+|_  http/1.1
+|_http-server-header: Xfinity Broadband Router Server
+| ssl-cert: Subject: commonName=myrouter.io/organizationName=Comcast Corporation/stateOrProvinceName=Pennsylvania/countryName=US
+| Subject Alternative Name: DNS:myrouter.io
+| Not valid before: 2024-01-08T00:00:00
+|_Not valid after:  2025-01-07T23:59:59
+|_ssl-date: TLS randomness does not represent time
+|_http-title: Rogers
+8080/tcp  filtered http-proxy
+8181/tcp  filtered intermapper
+9000/tcp  filtered cslistener
+49152/tcp open     upnp        Portable SDK for UPnP devices 1.6.22 (Linux 5.4.201-prod-23.2-231009; UPnP 1.0)
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.95%I=7%D=3/1%Time=67C3A3DD%P=i686-pc-windows-windows%r(G
+SF:etRequest,24AD,"HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/html\r\
+SF:nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS
+SF:-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\
+SF:r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSubdomains
+SF:\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,\x20
+SF:must-revalidate\r\nContent-Security-Policy:\x20default-src\x20'self'\x2
+SF:0;\x20style-src\x20'self'\x20;\x20frame-src\x20'self'\x20;\x20font-src\
+SF:x20'self'\x20;\x20form-action\x20'self'\x20;\x20script-src\x20'self'\x2
+SF:0'unsafe-inline'\x20'unsafe-eval';\x20img-src\x20'self';\x20connect-src
+SF:\x20'self';\x20object-src\x20'none';\x20media-src\x20'none';\x20script-
+SF:nonce\x20'none';\x20plugin-types\x20'none';\x20reflected-xss\x20'none';
+SF:\x20report-uri\x20'none';\r\nContent-Length:\x208642\r\nConnection:\x20
+SF:close\r\nDate:\x20Fri,\x2009\x20Jan\x201970\x2021:26:03\x20GMT\r\nServe
+SF:r:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n<!DOCTYPE\x20ht
+SF:ml\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\.0\x20Strict//EN\"\x20\"htt
+SF:p://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd\">\n<html\x20xmlns=\"
+SF:http://www\.w3\.org/1999/xhtml\"")%r(HTTPOptions,24AD,"HTTP/1\.0\x20200
+SF:\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex,nofoll
+SF:ow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mode=block
+SF:\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Security:\x2
+SF:0max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r\nCache
+SF:-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nContent-Secur
+SF:ity-Policy:\x20default-src\x20'self'\x20;\x20style-src\x20'self'\x20;\x
+SF:20frame-src\x20'self'\x20;\x20font-src\x20'self'\x20;\x20form-action\x2
+SF:0'self'\x20;\x20script-src\x20'self'\x20'unsafe-inline'\x20'unsafe-eval
+SF:';\x20img-src\x20'self';\x20connect-src\x20'self';\x20object-src\x20'no
+SF:ne';\x20media-src\x20'none';\x20script-nonce\x20'none';\x20plugin-types
+SF:\x20'none';\x20reflected-xss\x20'none';\x20report-uri\x20'none';\r\nCon
+SF:tent-Length:\x208642\r\nConnection:\x20close\r\nDate:\x20Fri,\x2009\x20
+SF:Jan\x201970\x2021:26:04\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Ro
+SF:uter\x20Server\r\n\r\n\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x2
+SF:0XHTML\x201\.0\x20Strict//EN\"\x20\"http://www\.w3\.org/TR/xhtml1/DTD/x
+SF:html1-strict\.dtd\">\n<html\x20xmlns=\"http://www\.w3\.org/1999/xhtml\"
+SF:");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.95%T=SSL%I=7%D=3/1%Time=67C3A3E3%P=i686-pc-windows-wind
+SF:ows%r(GetRequest,24AD,"HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/
+SF:html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r
+SF:\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20n
+SF:osniff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSub
+SF:domains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cac
+SF:he,\x20must-revalidate\r\nContent-Security-Policy:\x20default-src\x20's
+SF:elf'\x20;\x20style-src\x20'self'\x20;\x20frame-src\x20'self'\x20;\x20fo
+SF:nt-src\x20'self'\x20;\x20form-action\x20'self'\x20;\x20script-src\x20's
+SF:elf'\x20'unsafe-inline'\x20'unsafe-eval';\x20img-src\x20'self';\x20conn
+SF:ect-src\x20'self';\x20object-src\x20'none';\x20media-src\x20'none';\x20
+SF:script-nonce\x20'none';\x20plugin-types\x20'none';\x20reflected-xss\x20
+SF:'none';\x20report-uri\x20'none';\r\nContent-Length:\x208642\r\nConnecti
+SF:on:\x20close\r\nDate:\x20Fri,\x2009\x20Jan\x201970\x2021:26:09\x20GMT\r
+SF:\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n<!DOCTYP
+SF:E\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20XHTML\x201\.0\x20Strict//EN\"\x
+SF:20\"http://www\.w3\.org/TR/xhtml1/DTD/xhtml1-strict\.dtd\">\n<html\x20x
+SF:mlns=\"http://www\.w3\.org/1999/xhtml\"")%r(HTTPOptions,24AD,"HTTP/1\.0
+SF:\x20200\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex
+SF:,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mod
+SF:e=block\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Secur
+SF:ity:\x20max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r
+SF:\nCache-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nConten
+SF:t-Security-Policy:\x20default-src\x20'self'\x20;\x20style-src\x20'self'
+SF:\x20;\x20frame-src\x20'self'\x20;\x20font-src\x20'self'\x20;\x20form-ac
+SF:tion\x20'self'\x20;\x20script-src\x20'self'\x20'unsafe-inline'\x20'unsa
+SF:fe-eval';\x20img-src\x20'self';\x20connect-src\x20'self';\x20object-src
+SF:\x20'none';\x20media-src\x20'none';\x20script-nonce\x20'none';\x20plugi
+SF:n-types\x20'none';\x20reflected-xss\x20'none';\x20report-uri\x20'none';
+SF:\r\nContent-Length:\x208642\r\nConnection:\x20close\r\nDate:\x20Fri,\x2
+SF:009\x20Jan\x201970\x2021:26:10\x20GMT\r\nServer:\x20Xfinity\x20Broadban
+SF:d\x20Router\x20Server\r\n\r\n\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C/
+SF:/DTD\x20XHTML\x201\.0\x20Strict//EN\"\x20\"http://www\.w3\.org/TR/xhtml
+SF:1/DTD/xhtml1-strict\.dtd\">\n<html\x20xmlns=\"http://www\.w3\.org/1999/
+SF:xhtml\"");
+MAC Address: AC:4C:A5:FB:C8:4A (Vantiva USA)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.19
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel:5.4.201-prod-23.2-231009
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   26.89 ms 10.0.0.1
+
+Nmap scan report for 10.0.0.68
+Host is up (0.016s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  tcpwrapped
+MAC Address: 16:EF:98:03:CF:79 (Unknown)
+Device type: phone
+Running: Apple iOS 15.X
+OS CPE: cpe:/o:apple:iphone_os:15
+OS details: Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   16.34 ms 10.0.0.68
+
+Nmap scan report for 10.0.0.77
+Host is up (0.035s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  tcpwrapped
+MAC Address: 96:95:DC:7D:14:DB (Unknown)
+Device type: phone
+Running: Apple iOS 15.X
+OS CPE: cpe:/o:apple:iphone_os:15
+OS details: Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   35.21 ms 10.0.0.77
+
+Nmap scan report for 10.0.0.129
+Host is up (0.029s latency).
+Not shown: 994 closed tcp ports (reset)
+PORT      STATE SERVICE  VERSION
+1081/tcp  open  upnp     LG WebOS upnpd (WebOS 4.1.0; UPnP 1.0)
+3000/tcp  open  http     LG smart TV http service
+|_http-title: Site doesn't have a title.
+3001/tcp  open  ssl/http LG smart TV http service
+| ssl-cert: Subject: commonName=LG_TV_11e5c59461f4c44/organizationName=LG Electronics U.S.A, Inc./stateOrProvinceName=New Jersey/countryName=US
+| Not valid before: 2019-01-01T00:05:33
+|_Not valid after:  2038-12-27T00:05:33
+|_ssl-date: TLS randomness does not represent time
+| tls-nextprotoneg:
+|   http/1.1
+|_  http/1.0
+|_http-title: Site doesn't have a title.
+7000/tcp  open  rtsp     AirTunes rtspd 377.25.06
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+|_irc-info: Unable to open connection
+9080/tcp  open  glrpc?
+| fingerprint-strings:
+|   FourOhFourRequest:
+|     HTTP/1.0 200 OK
+|     Date: Sat, 01 Mar 2025 19:19:21 EST
+|     Server: NRDP/2020.1.7.0
+|     Connection: close
+|     Cache-Control: no-cache
+|     Content-Length: 9
+|     status=ok
+|   GetRequest:
+|     HTTP/1.0 200 OK
+|     Date: Sat, 01 Mar 2025 19:18:35 EST
+|     Server: NRDP/2020.1.7.0
+|     Connection: close
+|     Cache-Control: no-cache
+|     Content-Length: 9
+|_    status=ok
+11111/tcp open  vce?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port9080-TCP:V=7.95%I=7%D=3/1%Time=67C3A3DB%P=i686-pc-windows-windows%r
+SF:(GetRequest,99,"HTTP/1\.0\x20200\x20OK\r\nDate:\x20Sat,\x2001\x20Mar\x2
+SF:02025\x2019:18:35\x20EST\r\nServer:\x20NRDP/2020\.1\.7\.0\r\nConnection
+SF::\x20close\r\nCache-Control:\x20no-cache\r\nContent-Length:\x209\r\n\r\
+SF:nstatus=ok")%r(FourOhFourRequest,99,"HTTP/1\.0\x20200\x20OK\r\nDate:\x2
+SF:0Sat,\x2001\x20Mar\x202025\x2019:19:21\x20EST\r\nServer:\x20NRDP/2020\.
+SF:1\.7\.0\r\nConnection:\x20close\r\nCache-Control:\x20no-cache\r\nConten
+SF:t-Length:\x209\r\n\r\nstatus=ok");
+MAC Address: F0:86:20:09:66:36 (Arcadyan)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.14
+Network Distance: 1 hop
+Service Info: Device: media device
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   29.50 ms 10.0.0.129
+
+Nmap scan report for 10.0.0.172
+Host is up (0.015s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  tcpwrapped
+MAC Address: 4A:83:64:39:C1:A9 (Unknown)
+Device type: phone
+Running: Apple iOS 15.X
+OS CPE: cpe:/o:apple:iphone_os:15
+OS details: Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   15.35 ms 10.0.0.172
+
+Nmap scan report for 10.0.0.175
+Host is up (0.012s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+7000/tcp open  rtsp    AirTunes rtspd 377.40.00
+|_irc-info: Unable to open connection
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+MAC Address: F8:A2:D6:1C:E3:68 (Liteon Technology)
+Device type: phone
+Running: Google Android 5.X
+OS CPE: cpe:/o:google:android:5.1.1
+OS details: Android 5.1.1
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   12.19 ms 10.0.0.175
+
+Nmap scan report for 10.0.0.188
+Host is up (0.014s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  tcpwrapped
+MAC Address: 36:AA:2E:62:60:52 (Unknown)
+Device type: phone
+Running: Apple iOS 15.X
+OS CPE: cpe:/o:apple:iphone_os:15
+OS details: Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   14.08 ms 10.0.0.188
+
+Nmap scan report for 10.0.0.240
+Host is up (0.020s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE    VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  tcpwrapped
+MAC Address: DA:4E:8F:28:7C:39 (Unknown)
+Device type: phone
+Running: Apple iOS 15.X
+OS CPE: cpe:/o:apple:iphone_os:15
+OS details: Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   19.84 ms 10.0.0.240
+
+Nmap scan report for 10.0.0.220
+Host is up (0.00023s latency).
+Not shown: 994 closed tcp ports (reset)
+PORT     STATE SERVICE          VERSION
+135/tcp  open  msrpc            Microsoft Windows RPC
+139/tcp  open  netbios-ssn      Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds?
+903/tcp  open  ssl/vmware-auth  VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+4343/tcp open  ssl/unicall?
+| ssl-cert: Subject: commonName=localhost/organizationName=I3D/stateOrProvinceName=Taipei/countryName=TW
+| Not valid before: 2023-05-05T09:26:41
+|_Not valid after:  2123-04-11T09:26:41
+|_ssl-date: TLS randomness does not represent time
+4449/tcp open  ssl/privatewire?
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=localhost/organizationName=I3D/stateOrProvinceName=Taipei/countryName=TW
+| Not valid before: 2023-05-05T09:26:41
+|_Not valid after:  2123-04-11T09:26:41
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.95%E=4%D=3/1%OT=135%CT=1%CU=44040%PV=Y%DS=0%DC=L%G=Y%TM=67C3A55
+OS:7%P=i686-pc-windows-windows)SEQ(SP=101%GCD=1%ISR=103%TI=I%CI=I%II=I%SS=S
+OS:%TS=A)SEQ(SP=106%GCD=1%ISR=104%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=107%GCD=1
+OS:%ISR=10B%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=108%GCD=1%ISR=108%TI=I%CI=I%II=
+OS:I%SS=S%TS=A)SEQ(SP=FF%GCD=1%ISR=108%TI=I%CI=I%II=I%SS=S%TS=A)OPS(O1=MFFD
+OS:7NW8ST11%O2=MFFD7NW8ST11%O3=MFFD7NW8NNT11%O4=MFFD7NW8ST11%O5=MFFD7NW8ST1
+OS:1%O6=MFFD7ST11)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(R
+OS:=Y%DF=Y%T=80%W=FFFF%O=MFFD7NW8NNS%CC=N%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS
+OS:%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W
+OS:=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T
+OS:5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A=
+OS:O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF
+OS:=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=Z%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=80
+OS:%CD=Z)
+
+Network Distance: 0 hops
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode:
+|   3:1:1:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2025-03-02T00:24:43
+|_  start_date: N/A
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (9 hosts up) scanned in 435.77 seconds
+

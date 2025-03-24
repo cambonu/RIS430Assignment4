@@ -1,0 +1,110 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      10.0.0.112,,25,tcp,5.0,Medium,99,"Workaround","Check if Mailserver answer to VRFY and EXPN requests","The Mailserver on this host answers to VRFY and/or EXPN requests.","'VRFY root' produces the following answer: 252 2.0.0 root
+
+
+",1.3.6.1.4.1.25623.1.0.100072,"",01629947-4a01-44bf-a232-b8cc4bbd46fc,"Immediate scan of IP 10.0.0.112",2025-03-21T21:07:12Z,00d63201-98de-44b1-b9d2-302df8112dd3,"","Disable VRFY and/or EXPN on your Mailserver.
+
+  For postfix add 'disable_vrfy_command=yes' in 'main.cf'.
+
+  For Sendmail add the option 'O PrivacyOptions=goaway'.
+
+  It is suggested that, if you really want to publish this type of information, you use a mechanism
+  that legitimate users actually know about, such as Finger or HTTP.","","VRFY and EXPN ask the server for information about an address. They are
+  inherently unusable through firewalls, gateways, mail exchangers for part-time hosts, etc.","
+Details:
+Check if Mailserver answer to VRFY and EXPN requests
+(OID: 1.3.6.1.4.1.25623.1.0.100072)
+Version used: 2023-10-31T05:06:37Z
+","","","",""
+10.0.0.112,,21,tcp,4.8,Medium,70,"Mitigation","FTP Unencrypted Cleartext Login","The remote host is running a FTP service that allows cleartext logins over
+  unencrypted connections.","The remote FTP service accepts logins without a previous sent 'AUTH TLS' command. Response(s):
+
+Non-anonymous sessions: 331 Please specify the password.
+Anonymous sessions:     331 Please specify the password.
+",1.3.6.1.4.1.25623.1.0.108528,"",01629947-4a01-44bf-a232-b8cc4bbd46fc,"Immediate scan of IP 10.0.0.112",2025-03-21T21:07:12Z,664c88cd-1032-4601-abe1-fa668011f552,"An attacker can uncover login names and passwords by sniffing traffic to the
+  FTP service.","Enable FTPS or enforce the connection via the 'AUTH TLS' command. Please see
+  the manual of the FTP service for more information.","","","Tries to login to a non FTPS enabled FTP service without sending a
+  'AUTH TLS' command first and checks if the service is accepting the login without enforcing the use of
+  the 'AUTH TLS' command.
+Details:
+FTP Unencrypted Cleartext Login
+(OID: 1.3.6.1.4.1.25623.1.0.108528)
+Version used: 2023-12-20T05:05:58Z
+","","","",""
+10.0.0.112,,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 1076362411
+Packet 2: 1076363471
+",1.3.6.1.4.1.25623.1.0.80091,"",01629947-4a01-44bf-a232-b8cc4bbd46fc,"Immediate scan of IP 10.0.0.112",2025-03-21T21:07:12Z,30c1e20c-afee-4d0a-ba75-9a61ae92f42c,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+10.0.0.112,,22,tcp,2.6,Low,80,"Mitigation","Weak MAC Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak MAC
+  algorithm(s).","The remote SSH server supports the following weak client-to-server MAC algorithm(s):
+
+umac-64-etm@openssh.com
+umac-64@openssh.com
+
+
+The remote SSH server supports the following weak server-to-client MAC algorithm(s):
+
+umac-64-etm@openssh.com
+umac-64@openssh.com
+",1.3.6.1.4.1.25623.1.0.105610,"",01629947-4a01-44bf-a232-b8cc4bbd46fc,"Immediate scan of IP 10.0.0.112",2025-03-21T21:07:12Z,c1534932-ba52-4134-a968-23e24337d3fd,"","Disable the reported weak MAC algorithm(s).","","","Checks the supported MAC algorithms (client-to-server and
+  server-to-client) of the remote SSH server.
+
+  Currently weak MAC algorithms are defined as the following:
+
+  - MD5 based algorithms
+
+  - 96-bit based algorithms
+
+  - 64-bit based algorithms
+
+  - 'none' algorithm
+Details:
+Weak MAC Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.105610)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+10.0.0.112,,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",01629947-4a01-44bf-a232-b8cc4bbd46fc,"Immediate scan of IP 10.0.0.112",2025-03-21T21:07:12Z,e529b0a8-8ecf-46f8-830b-f9302a8f2125,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
